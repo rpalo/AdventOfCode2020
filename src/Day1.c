@@ -3,8 +3,9 @@
 /// My expense report for my trip is messed up and entries need
 /// adjusting.
 
+#include "Day1.h"
+
 #include <stdio.h>
-#include <stdlib.h>
 
 /// Parse the input file, which contains one positive integer per line.
 int* parse(const char* filename, size_t* count) {
@@ -65,9 +66,10 @@ int part2(int* entries, size_t count) {
   return -1;
 }
 
-int main() {
+int day1() {
   size_t count;
-  int* entries = parse("day1/day1.txt", &count);
+  int* entries = parse("data/day1.txt", &count);
+  printf("====== Day 1 ======\n");
   printf("The 2020 pair product is: %d\n", part1(entries, count));
   printf("The 2020 triplet product is: %d\n", part2(entries, count));
   return EXIT_SUCCESS;

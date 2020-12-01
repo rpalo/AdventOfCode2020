@@ -4,14 +4,14 @@ These are my solutions to Advent of Code 2020.  The current goal is to try to do
 
 ## Running the Code
 
-I'm using `make`.  To run a specific day, run:
+I'm using `make`.  To run everything, run:
 
 ```shell
-make [day number (e.g. 11)]
+make run
 ```
 
-To run everything, just run:
+To run the tests:
 
 ```
-make
+make test
 ```
