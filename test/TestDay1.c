@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 #include "unity.h"
 #include "Day1.h"
 
