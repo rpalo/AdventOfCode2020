@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+
+# newday: Creates a new day of files for the Advent of Code Challenge
+#
+# Date:   12/2/2020
+# Author: Ryan Palo
+
+function usage() {
+  echo "usage: newday NUMBER"
+  echo
+  echo "    NUMBER: The number of the day to create.  Will be inserted"
+  echo "            into the templates and used for filenames."
+}
+
+function help() {
+  echo "newday: Creates a new day of files for the Advent of Code challenge."
+  echo
+  usage
+  echo
+}
+
+function make_day() {
+  day="$1"
+  echo "Creating Day ${day}." >&2
+  sed "s/{X}/$day/g" "templates/DayX.c" > "src/Day${day}.c"
+  sed "s/{X}/$day/g" "templates/DayX.h" > "src/Day${day}.h"
+  sed "s/{X}/$day/g" "templates/TestDayX.c" > "test/TestDay${day}.c"
+  sed "s/{X}/$day/g" 'templates/main.c' > 'src/main.c'
+  touch "data/day${day}.txt"
+  echo "Complete." >&2
+}
+
+function main() {
+  if [[ "$#" -ne 1 ]]; then
+    usage
+    exit 1
+  fi
+
+  if [[ "$1" == '-h' ]]; then
+    help
+    exit 0
+  fi
+
+  if ! [[ "$1" =~ [:digit:]+ ]]; then
+    echo "Input must be a number"
+    exit 1
+  fi
+
+  make_day "$1"
+}
+
+main "$@"
