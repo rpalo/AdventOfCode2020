@@ -21,12 +21,18 @@ function help() {
 
 function make_day() {
   day="$1"
+  if [[ -f "src/Day${day}.c" ]]; then
+    echo "Day already exists!" >&2
+    exit 1
+  fi
+  
   echo "Creating Day ${day}." >&2
   sed "s/{X}/$day/g" "templates/DayX.c" > "src/Day${day}.c"
   sed "s/{X}/$day/g" "templates/DayX.h" > "src/Day${day}.h"
   sed "s/{X}/$day/g" "templates/TestDayX.c" > "test/TestDay${day}.c"
   sed "s/{X}/$day/g" 'templates/main.c' > 'src/main.c'
   touch "data/day${day}.txt"
+  echo "# Used by Make to run the current day\n$day" > current_day.txt
   echo "Complete." >&2
 }
 
@@ -41,7 +47,7 @@ function main() {
     exit 0
   fi
 
-  if ! [[ "$1" =~ [:digit:]+ ]]; then
+  if ! [[ "$1" =~ [[:digit:]]+ ]]; then
     echo "Input must be a number"
     exit 1
   fi

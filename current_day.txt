@@ -1,0 +1,2 @@
+# Used by Make to run the current day
+3

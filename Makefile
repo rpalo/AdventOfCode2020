@@ -1,12 +1,14 @@
 CC=gcc
 CFLAGS=-Wall -Werror -Iunity/src -Isrc
 
+DAY:=$(shell tail -n1 current_day.txt)
+
 .PHONY: run
 run: bin/aoc
 	@bin/aoc
 
 # Build main binary
-bin/aoc: build/objs/main.o build/objs/Day2.o build/objs/parsing.o
+bin/aoc: build/objs/main.o build/objs/Day$(DAY).o build/objs/parsing.o
 	@$(CC) $^ -o $@ $(CFLAGS)
 
 # Build object files for main binary
