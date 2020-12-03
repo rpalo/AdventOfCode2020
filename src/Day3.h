@@ -1,5 +1,11 @@
+/// Day 3: Taboggan Trajectory
+/// 
+/// Figure out how many trees you'll have to go past given a 2D grid/slope
+/// covered in them.
+
 #ifndef AOC2020_DAY3_H
 #define AOC2020_DAY3_H
+
 
 #include <stdlib.h>
 

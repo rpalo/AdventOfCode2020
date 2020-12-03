@@ -1,8 +1,3 @@
-/// Day 3: Taboggan Trajectory
-/// 
-/// Figure out how many trees you'll have to go past given a 2D grid/slope
-/// covered in them.
-
 #include "Day3.h"
 #include "parsing.h"
 
