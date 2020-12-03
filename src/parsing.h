@@ -8,4 +8,11 @@
 /// Assumes no newline at the end of the last line (so adds +1 more)
 size_t count_lines(FILE* fp);
 
+typedef struct {
+  size_t width;
+  size_t height;
+} GridSize;
+
+GridSize measure_grid(FILE* fp);
+
 #endif

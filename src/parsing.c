@@ -12,3 +12,18 @@ size_t count_lines(FILE* fp) {
   rewind(fp);
   return lines + 1;
 }
+
+GridSize measure_grid(FILE* fp) {
+  size_t lines = 0;
+  size_t cols = 0;
+
+  while (getc(fp) != '\n') cols++;
+  lines++;
+  while (!feof(fp)) {
+    if (getc(fp) == '\n') lines++;
+  }
+  lines++; // Assume no newline after last line.
+
+  rewind(fp);
+  return (GridSize) {.width = cols, .height = lines};
+}
