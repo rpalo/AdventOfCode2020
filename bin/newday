@@ -32,7 +32,9 @@ function make_day() {
   sed "s/{X}/$day/g" "templates/TestDayX.c" > "test/TestDay${day}.c"
   sed "s/{X}/$day/g" 'templates/main.c' > 'src/main.c'
   touch "data/day${day}.txt"
-  echo "# Used by Make to run the current day\n$day" > current_day.txt
+  touch "data/day${daty}_test.txt"
+  echo '# Used by Make to run the current day' > current_day.txt
+  echo "$day" >> current_day.txt
   echo "Complete." >&2
 }
 

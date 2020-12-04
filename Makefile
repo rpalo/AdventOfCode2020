@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-Wall -Werror -Iunity/src -Isrc
+CFLAGS=-Wall -Iunity/src -Isrc
 
 DAY:=$(shell tail -n1 current_day.txt)
 

@@ -1,22 +1,15 @@
-/// Day {X}: 
-/// 
-/// 
-
 #include "Day{X}.h"
 
 #include <stdio.h>
 
-/// Parse the input file,
  parse() {
   
 }
 
-/// Part 1
 int part1() {
   
 }
 
-/// Part 2
 int part2() {
   
 }

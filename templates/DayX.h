@@ -1,6 +1,10 @@
 #ifndef AOC2020_DAY{X}_H
 #define AOC2020_DAY{X}_H
 
+/// Day {X}: 
+/// 
+/// 
+
 #include <stdlib.h>
 
 int* parse();
