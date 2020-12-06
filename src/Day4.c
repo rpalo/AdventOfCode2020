@@ -122,7 +122,7 @@ static EyeColor parse_eye_color(char* value) {
 }
 
 /// Prints out a FancyPassport for debugging.
-static void print_fancy_passport(FancyPassport* p) {
+static inline void print_fancy_passport(FancyPassport* p) {
   printf("Passport:\n");
   printf("BYR: %d\nIYR: %d\nEYR: %d\n", p->byr, p->iyr, p->eyr);
   printf("HGT: %d-%d\nHCL: %s\nECL: %d\n", p->hgt.value, p->hgt.units, p->hcl, p->ecl);
