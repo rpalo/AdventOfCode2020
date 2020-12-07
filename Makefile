@@ -1,11 +1,19 @@
 CC=gcc
 CFLAGS=-Wall -Iunity/src -Isrc
-
+CLEAN=rm -rf
 DAY:=$(shell tail -n1 current_day.txt)
 
 .PHONY: run
 run: bin/aoc
 	@bin/aoc
+
+.PHONY: all
+all: clean test run
+
+.PHONY: clean
+clean:
+	$(CLEAN) build/objs/*
+	$(CLEAN) build/Test*.out
 
 # Build main binary
 bin/aoc: build/objs/main.o build/objs/Day$(DAY).o build/objs/parsing.o

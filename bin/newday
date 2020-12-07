@@ -5,6 +5,10 @@
 # Date:   12/2/2020
 # Author: Ryan Palo
 
+set -o errexit
+set -o nounset
+set -o pipefail
+
 function usage() {
   echo "usage: newday NUMBER"
   echo
@@ -32,7 +36,7 @@ function make_day() {
   sed "s/{X}/$day/g" "templates/TestDayX.c" > "test/TestDay${day}.c"
   sed "s/{X}/$day/g" 'templates/main.c' > 'src/main.c'
   touch "data/day${day}.txt"
-  touch "data/day${daty}_test.txt"
+  touch "data/day${day}_test.txt"
   echo '# Used by Make to run the current day' > current_day.txt
   echo "$day" >> current_day.txt
   echo "Complete." >&2
