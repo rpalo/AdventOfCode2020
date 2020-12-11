@@ -33,3 +33,7 @@ TESTEXECS=$(patsubst test/Test%.c, build/Test%.out, $(TESTS))
 .PHONY: test
 test: $(TESTEXECS)
 	@$(foreach ex, $(TESTEXECS), echo "Running $(ex)"; ./$(ex);)
+
+.PHONY: testone
+testone: build/TestDay$(DAY).out
+	./$<
