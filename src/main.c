@@ -1,9 +1,9 @@
-#include "Day10.h"
+#include "Day11.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 
 int main() {
-  day10();
+  day11();
   return EXIT_SUCCESS;
 }
