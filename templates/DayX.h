@@ -1,14 +1,9 @@
 #ifndef AOC2020_DAY{X}_H
 #define AOC2020_DAY{X}_H
 
-/// Day {X}: 
-/// 
-/// 
-
 #include <stdlib.h>
 
-int* parse();
-int part1();
-int part2();
+int part1(const char* filename);
+int part2(const char* filename);
 int day{X}(void);
 #endif
