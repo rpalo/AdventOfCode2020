@@ -5,12 +5,29 @@
 
 size_t count_lines(FILE* fp) {
   size_t lines = 0;
-  while (!feof(fp)) {
-    if (getc(fp) == '\n') lines++;
+  for (;;) {
+    char c = getc(fp);
+    if (c == '\n') lines++;
+    if (c == EOF) break;
   }
 
   rewind(fp);
   return lines + 1;
+}
+
+size_t count_lines_until_blank(FILE* fp) {
+  size_t lines = 0;
+  for(;;) {
+    char c = getc(fp);
+    if (c == '\n') {
+      lines++;
+      if (getc(fp) == '\n') break;
+    }
+    if (c == EOF) break;
+  }
+
+  rewind(fp);
+  return lines;
 }
 
 GridSize measure_grid(FILE* fp) {
